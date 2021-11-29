@@ -1,0 +1,38 @@
+@model _05_MvcWebUI.Models.ProductListViewModel
+@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
+@addTagHelper "*, 05_MvcWebUI"
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Product List</h2>
+
+<td><a class="btn btn-xs btn-success" asp-controller="Admin" asp-action="Add" asp-route-restaurantId="@Model.Restaurant.Id">Add A New Product</a></td>
+<table class="table table-responsive">
+    <tr>
+        <td>Product Name</td>
+        <td>Price</td>
+        <td>Category</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    @foreach (var product in Model.Products)
+    {
+        <tr>
+            <td>@product.Name</td>
+            <td>@product.Price</td>
+            <td>@product.CategoryId</td>
+            <td><a class="btn btn-xs btn-info" asp-controller="Admin" asp-action="Update" asp-route-productId="@product.Id" >Update</a></td>
+            <td><a class="btn btn-xs btn-danger" asp-controller="Admin" asp-action="Delete" asp-route-productId="@product.Id">Delete</a></td>
+            <td>
+            <td><input type="hidden" asp-for="@product.RestaurantId" /></td>
+        </tr>
+    }
+</table>
+<product-list-pager current-category="@Model.CurrentCategory"
+                    current-page="@Model.CurrentPage"
+                    page-count="@Model.PageCount"
+                    page-size="@Model.PageSize"></product-list-pager>

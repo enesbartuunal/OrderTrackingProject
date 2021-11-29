@@ -1,0 +1,26 @@
+@model _05_MvcWebUI.Models.ReceiptSummaryViewModel
+
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end navbar-nav">
+        <button type="button" class="btn btn-secondary me-md-2 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Your Cart
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+            @foreach (var item in Model.Receipt.ReceiptLines)
+            {
+                <li>
+                    <a class="dropdown-item">
+                        @item.Product.Name <span class="badge bg-secondary">@item.Quantity</span>
+                    </a>
+                </li>
+            }
+            <li><hr class="dropdown-divider"></li>
+            <li>
+                <a class="dropdown-item"><i class="bi bi-basket2-fill"></i>Total Price: @Model.Receipt.TotalPrice</a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+                <a class="dropdown-item" asp-controller="Receipt" asp-action="List">Go to receipt details</a>
+            </li>
+        </ul>
+    </div>

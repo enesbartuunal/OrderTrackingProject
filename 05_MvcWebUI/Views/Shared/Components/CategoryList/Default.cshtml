@@ -1,0 +1,16 @@
+@model _05_MvcWebUI.Models.CategoryListViewModel
+
+<div class="list-group">
+    @foreach (var category in Model.Categories)
+    {
+        var q = "list-group-item";
+        if (category.Id == Model.CurrentCategory)
+        {
+            q += " active";
+        }
+    <button class="kamil" categoryId="@category.Id" resId="@category.RestaurantId">
+        <a href="/Product/Index?restaurantId=@category.RestaurantId?category=@category.Id" class="@q">
+            @category.Name
+        </a>
+    </button>}
+</div>

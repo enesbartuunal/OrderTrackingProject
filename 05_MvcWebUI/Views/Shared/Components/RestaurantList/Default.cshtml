@@ -1,0 +1,14 @@
+@model _05_MvcWebUI.Models.RestaurantViewModels.RestaurantListViewModel
+
+<div class="list-group">
+    @foreach (var restaurant in Model.Restaurants)
+    {
+        var q = "list-group-item";
+        if (restaurant.Id == Model.CurrentRestaurant)
+        {
+            q += " active";
+        }
+<a href="/Admin/Index?restaurant=@restaurant.Id" class="@q">
+    @restaurant.Name
+</a>}
+</div>

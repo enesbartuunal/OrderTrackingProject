@@ -1,0 +1,23 @@
+@model _05_MvcWebUI.Models.CategoryListViewModel
+@{ ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+
+<h2>Category List</h2>
+<td><a class="btn btn-xs btn-success" asp-controller="Admin" asp-action="AddCategory" asp-route-restaurantId="@Model.RestaurantId">Add A New Category</a></td>
+<div>
+    <table class="table table-responsive">
+        <tr>
+            <td>Category Name</td>
+            <td></td>
+            <td></td>
+
+        </tr>
+        @foreach (var category in Model.Categories)
+        {
+<tr>
+    <td>@category.Name</td>
+    <td><a class="btn btn-xs btn-danger" asp-controller="Admin" asp-action="DeleteCategory" asp-route-categoryId="@category.Id">Delete</a></td>
+    <td><input type="hidden" asp-for="RestaurantId" /></td>
+</tr>}
+    </table>
+</div>

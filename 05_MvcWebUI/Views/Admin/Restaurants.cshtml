@@ -1,0 +1,25 @@
+@model _05_MvcWebUI.Models.RestaurantViewModels.RestaurantListViewModel
+@{ ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+
+<h2>Category List</h2>
+
+<td><a class="btn btn-xs btn-success" asp-controller="Admin" asp-action="AddRestaurant">Add A New Restaurant</a></td>
+<div>
+    <table class="table table-responsive">
+        <tr>
+            <td>Restaurant Name</td>
+            <td></td>
+            <td></td>
+        </tr>
+        @foreach (var restaurant in Model.Restaurants)
+        {
+<tr>
+    <td>@restaurant.Name</td>
+    <td><a class="btn btn-xs btn-danger" asp-controller="Admin" asp-action="Categories" asp-route-restaurantId="@restaurant.Id">Go To Categories</a></td>
+    <td><a class="btn btn-xs btn-danger" asp-controller="Admin" asp-action="Index" asp-route-restaurantId="@restaurant.Id">Go To Products</a></td>
+    <td><a class="btn btn-xs btn-danger" asp-controller="Admin" asp-action="DeleteRestaurant" asp-route-restaurantId="@restaurant.Id">Delete</a></td>
+</tr>
+}
+    </table>
+</div>

@@ -1,0 +1,33 @@
+@model _05_MvcWebUI.Models.ProductAddViewModel
+
+@{ ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+
+<h2>Add A Product</h2>
+
+<form asp-controller="Admin" asp-action="Add" method="post">
+    <div class="form-group">
+        <label asp-for="Product.Name"></label>
+        <input asp-for="Product.Name" class="form-control" placeholder="Product Name" />
+        <span asp-validation-for="Product.Name"></span>
+    </div>
+    <div>
+        <input asp-for="@Model.Restaurant.Id" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Product.CategoryId"></label>
+        <select asp-for="Product.CategoryId" class="form-control" asp-items="@(new SelectList(Model.Categories, "Id", "Name"))"></select>
+        <span asp-validation-for="Product.CategoryId"></span>
+    </div>
+    <div>
+        <label asp-for="Product.RestaurantId"></label>
+        <input asp-for="Product.RestaurantId" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="Product.Price"></label>
+        <input asp-for="Product.Price" class="form-control" placeholder="Price" />
+        <span asp-validation-for="Product.Price"></span>
+    </div>
+    
+    <input type="submit" value="Add" class="btn btn-xs btn-success" />
+</form>

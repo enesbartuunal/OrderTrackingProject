@@ -1,0 +1,48 @@
+﻿@model _05_MvcWebUI.Models.ProductListViewModel
+@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
+@addTagHelper "*, 05_MvcWebUI"
+
+@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+<script src="C:\Users\Enes Bartu Ünal\Desktop\OrderINC\05_MvcWebUI\Views\Product\ProductIndex.js"></script>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            @await Component.InvokeAsync("CategoryList", new { restaurantId = TempData["restaurantId"] })
+        </div>
+        <div class="col-md-10">
+            <table class="table table-responsive">
+                <tr>
+                    <td>Product Name</td>
+                    <td>Price</td>
+                    <td>Category</td>
+                    <td></td>
+                </tr>
+                @foreach (var product in Model.Products)
+                {
+    <tr>
+        <td>@product.Name</td>
+        <td>@product.Price</td>
+        <td>@product.CategoryId</td>
+        <td><a class="btn btn-xs btn-success" asp-controller="Receipt" asp-action="AddToReceipt" asp-route-productId="@product.Id">Add To Receipt</a></td>
+    </tr>}
+            </table>
+            <product-list-pager current-category="@Model.CurrentCategory"
+                                current-page="@Model.CurrentPage"
+                                page-count="@Model.PageCount"
+                                page-size="@Model.PageSize"></product-list-pager>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@*<div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">@product.Name</h5>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>*@

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>_04_Business</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Abstract\" />
+    <Folder Include="Concrete\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\01_AppCore\01_AppCore.csproj" />
+    <ProjectReference Include="..\02_Entities\02_Entities.csproj" />
+    <ProjectReference Include="..\03_DataAccess\03_DataAccess.csproj" />
+  </ItemGroup>
+</Project>

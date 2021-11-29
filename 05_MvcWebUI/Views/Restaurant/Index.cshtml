@@ -1,0 +1,29 @@
+@model _05_MvcWebUI.Models.RestaurantViewModels.RestaurantListViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-responsive">
+                <tr>
+                    <td>Restaurant Name</td>
+                    <td></td>
+                </tr>
+                @foreach (var restaurant in Model.Restaurants)
+                {
+                    <tr>
+                        <td>@restaurant.Name</td>
+                        <td><a class="btn btn-xs btn-success" asp-controller="Product" asp-action="Index" asp-route-restaurantId="@restaurant.Id">Go To Restaurant</a></td>
+                    </tr>
+                }
+            </table>
+            <product-list-pager current-category="@Model.CurrentCategory"
+                                current-page="@Model.CurrentPage"
+                                page-count="@Model.PageCount"
+                                page-size="@Model.PageSize"></product-list-pager>
+        </div>
+    </div>
+</div>

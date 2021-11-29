@@ -1,0 +1,16 @@
+@model _05_MvcWebUI.Models.CategoryAddViewModel
+
+@{ ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+
+<h2>Add A Category</h2>
+
+<form asp-controller="Admin" asp-action="AddCategory" method="post">
+    <div class="form-group">
+        <label asp-for="Category.Name"></label>
+        <input asp-for="Category.Name" class="form-control" placeholder="Category Name" />
+        <span asp-validation-for="Category.Name"></span>
+    </div>
+    <input type="hidden" asp-for="RestaurantId" />
+    <input type="submit" value="Add" class="btn btn-xs btn-success" />
+</form>

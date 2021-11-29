@@ -1,0 +1,77 @@
+﻿@{
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+</head>
+<body class="d-flex h-100 text-center text-white bg-dark">
+
+    <div class="container-md d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <main class="px-3">
+            <h1>Welcome To OrderINC!</h1>
+            <p class="lead">
+                <a asp-controller="Account" asp-action="Login" class="btn btn-outline-primary btn-larg">
+                    <i>Please Login for create an order.</i>
+                </a>
+            </p>
+            <p class="lead">
+                <a asp-controller="Account" asp-action="Register" class="btn btn-outline-secondary">
+                    <i>Dont't have an account? Sign up here.</i>
+                </a>
+            </p>
+        </main>
+
+    </div>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+@*@{
+        Layout = "";
+    }
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>@ViewBag.Title</title>
+
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    </head>
+    <body>
+        <main>
+            <h1 class="display-4">Welcome to OrderINC!</h1>
+            <h1></h1>
+            <a asp-controller="Account" asp-action="Login" class="btn btn-outline-primary btn-larg">
+                <i>Please Login for create an order.</i>
+            </a>
+            <h1></h1>
+            <h1></h1>
+            <a asp-controller="Account" asp-action="Register" class="btn btn-outline-secondary">
+                <i>Dont't have an account? Sign up here.</i>
+            </a>
+        </main>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+        <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    </body>
+    </html>*@

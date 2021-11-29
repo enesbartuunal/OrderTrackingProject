@@ -1,0 +1,14 @@
+@model _05_MvcWebUI.Models.CategoryListViewModel
+
+<div class="list-group">
+    @foreach (var category in Model.Categories)
+    {
+        var q = "list-group-item";
+        if (category.Id == Model.CurrentCategory)
+        {
+            q += " active";
+        }
+<a href="/Admin/Index?category=@category.Id" class="@q">
+    @category.Name
+</a>}
+</div>

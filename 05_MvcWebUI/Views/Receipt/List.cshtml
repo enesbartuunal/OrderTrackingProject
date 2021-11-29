@@ -1,0 +1,50 @@
+@model _05_MvcWebUI.Models.ReceiptListViewModel
+
+@{ Layout = "~/Views/Shared/_Layout.cshtml";}
+
+
+<h2>Your Receipt</h2>
+<table class="table">
+    <tr>
+        <td>Product Name</td>
+        <td>Price</td>
+        <td>Quantity</td>
+        <td></td>
+    </tr>
+    @foreach (var item in Model.Receipt.ReceiptLines)
+    {
+<tr>
+    <td>@item.Product.Name</td>
+    <td>@item.Product.Price</td>
+    <td>@item.Quantity</td>
+    <td class="text-right"><a class="btn btn-xs btn-danger" asp-controller="Receipt" asp-action="Remove" asp-route-productId="@item.Product.Id"><i class="bi bi-x-circle"></i>Remove from receipt</a></td>
+</tr>}
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+            <h3>Total:</h3>
+        </td>
+        <td class="text-right">
+            <h3>
+                <strong>@Model.Receipt.TotalPrice</strong>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+            <a asp-controller="Restaurant" asp-action="Index" class="btn btn-xs btn-default">
+                <i class="bi bi-basket2-fill"></i> Continue ordering
+            </a>
+        </td>
+        <td class="text-right">
+            <a asp-controller="Receipt" asp-action="Complete" class="btn btn-xs btn-success">
+                <i class="bi bi-check-circle-fill"></i> Payment completed!
+            </a>
+        </td>
+    </tr>
+</table>

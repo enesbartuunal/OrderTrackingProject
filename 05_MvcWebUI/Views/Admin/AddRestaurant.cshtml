@@ -1,0 +1,15 @@
+@model _05_MvcWebUI.Models.RestaurantViewModels.RestaurantAddViewModel
+
+@{ ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+
+<h2>Add A Restaurant</h2>
+
+<form asp-controller="Admin" asp-action="AddRestaurant" method="post">
+    <div class="form-group">
+        <label asp-for="Restaurant.Name"></label>
+        <input asp-for="Restaurant.Name" class="form-control" placeholder="Restaurant Name" />
+        <span asp-validation-for="Restaurant.Name"></span>
+    </div>
+    <input type="submit" value="Add" class="btn btn-xs btn-success" />
+</form>
